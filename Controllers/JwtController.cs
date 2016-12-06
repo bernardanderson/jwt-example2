@@ -116,7 +116,7 @@ namespace jwt_example.Controllers
                   new GenericIdentity(user.UserName, "Token"),
                   new[]
                   {
-            new Claim("DisneyCharacter", "IAmMickey")
+                    new Claim("DisneyCharacter", "IAmMickey")
                   }));
             }
 
@@ -125,7 +125,10 @@ namespace jwt_example.Controllers
             {
                 return Task.FromResult(new ClaimsIdentity(
                   new GenericIdentity(user.UserName, "Token"),
-                  new Claim[] { }));
+                  new[]
+                  {
+                    new Claim("DisneyCharacter", "IAmMickey")
+                  }));
             }
 
             // Credentials are invalid, or account doesn't exist
