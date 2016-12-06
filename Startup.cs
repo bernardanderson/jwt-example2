@@ -39,6 +39,13 @@ namespace jwt_example
             // Add framework services.
             services.AddOptions();
 
+            // Use policy auth.
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("DisneyUser",
+                                  policy => policy.RequireClaim("DisneyCharacter", "IAmMickey"));
+            });
+
             // Add framework services.
             services.AddMvc(config =>
             {
